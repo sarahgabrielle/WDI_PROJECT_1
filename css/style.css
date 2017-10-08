@@ -1,3 +1,65 @@
 body {
-  background: blue
+  background: pink;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {
+  border: 2px solid blue;
+  font-size: 40px;
+  text-align: center;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+main {
+  border: 2px solid green;
+  padding: 100px;
+}
+
+ul {
+  border: 2px solid red;
+  padding: 20px;
+  margin-bottom: 20px
+}
+
+li {
+  border: 2px solid white;
+  margin: 0 auto;
+  display: inline;
+  padding: 10px;
+}
+
+.container {
+  border: 2px solid black;
+  padding: 400px 375px;
+  /*position: relative;*/
+}
+
+#spaceship,#planets  {
+  border: 2px solid purple;
+  /*position: absolute;*/
+}
+
+#planets {
+  border: 2px solid white;
+  position: relative;
+  top: 0;
+}
+
+#spaceship {
+  border: 2px solid white;
+  position: absolute;
+  bottom:0;
+}
+
+footer {
+  border: 2px solid yellow;
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 40px;
+  font-size: 20px;
 }
