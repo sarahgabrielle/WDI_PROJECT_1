@@ -36,11 +36,6 @@ li {
   position: relative;
 }
 
-#spaceship,#planets  {
-  /*border: 2px solid purple;*/
-  /*position: absolute;*/
-}
-
 #planets {
   /*border: 2px solid white;*/
   position: absolute;
