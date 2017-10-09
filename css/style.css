@@ -1,30 +1,29 @@
 body {
   background: pink;
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
 header {
   border: 2px solid blue;
-  font-size: 40px;
   text-align: center;
-  padding: 30px;
   margin-bottom: 20px;
 }
 
-main {
-  border: 2px solid green;
-  padding: 100px;
+h1 {
+  font-size: 40px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
 ul {
   border: 2px solid red;
   padding: 20px;
-  margin-bottom: 20px
 }
 
 li {
   border: 2px solid white;
+  font-size: 20px;
   margin: 0 auto;
   display: inline;
   padding: 10px;
@@ -32,25 +31,33 @@ li {
 
 .container {
   border: 2px solid black;
-  padding: 400px 375px;
-  /*position: relative;*/
+  width: 600px;
+  height: 600px;
+  position: relative;
 }
 
 #spaceship,#planets  {
-  border: 2px solid purple;
+  /*border: 2px solid purple;*/
   /*position: absolute;*/
 }
 
 #planets {
-  border: 2px solid white;
-  position: relative;
+  /*border: 2px solid white;*/
+  position: absolute;
   top: 0;
+  width: 20px;
+  height: 20px;
+  background-color: blue;
 }
 
 #spaceship {
-  border: 2px solid white;
+  /*border: 2px solid white;*/
   position: absolute;
-  bottom:0;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  left: 290px;
 }
 
 footer {
