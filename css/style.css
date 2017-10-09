@@ -34,12 +34,13 @@ li {
   width: 600px;
   height: 600px;
   position: relative;
+  /*overflow: hidden;*/
 }
 
-#planets {
+.planets {
   /*border: 2px solid white;*/
   position: absolute;
-  top: 0;
+  top: -20px;
   width: 20px;
   height: 20px;
   background-color: blue;
