@@ -1,33 +1,47 @@
+let checkCollide;
+let $button;
+let score = null;
+
+
 $(() =>{
+
+
+  const $container = $('.container');
+  const $spaceship = $('#spaceship');
+  const $score = $('#score');
+  $button = $('button');
+
+  // function play(){
+
+
+  $button.on('click', play);
 
   function play(){
     moveSpaceship();
-    setInterval(createPlanets, 1000);
+    checkCollide = setInterval(createPlanets, 1000);
+    checkScore();
   }
-
-  // createPlanets();
-
 
 
   function moveSpaceship(){
     $(document).keydown(function(e) {
-      const shipPosition = $('#spaceship').position();
+      const shipPosition = $spaceship.position();
 
       switch(e.keyCode) {
         case 37: // left
-          if(shipPosition.left > 0 ) {
-            $('#spaceship').css('left', '-=10px');
-          }
-          break;
+        if(shipPosition.left > 0 ) {
+          $spaceship.css('left', '-=10px');
+        }
+        break;
         case 39: // right
-          if(shipPosition.left < 580 ) {
-            $('#spaceship').css('left', '+=10px');
-          }
+        if(shipPosition.left < 580 ) {
+          $spaceship.css('left', '+=10px');
+        }
       }
     });
   }
+
   function createPlanets(){
-    const $container = $('.container');
 
     const randomTop = Math.floor(Math.random() * 580) + 1;
     const randomHeight = Math.floor(Math.random() * 20) + 10;
@@ -66,6 +80,8 @@ $(() =>{
     function step(){
       if (collisions($('#spaceship'), $('.planets'))) {
         console.log('game over');
+        clearInterval(checkCollide);
+        $planet.stop();
       }
     }
 
@@ -73,6 +89,21 @@ $(() =>{
       $(this).remove();
     }
   }
+
+
+
+  function checkScore(){
+    if(createPlanets === true){
+      score++;
+      updateScore();
+    }
+  }
+
+  function updateScore(){
+    if (score >= 0) $score.html(`Score: ${score}`);
+  }
+
+
 
 
 });

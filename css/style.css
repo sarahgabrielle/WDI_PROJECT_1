@@ -1,28 +1,33 @@
+
+
 body {
-  background: pink;
+  background: white;
   max-width: 600px;
   margin: 0 auto;
 }
 
 header {
-  border: 2px solid blue;
+  /*border: 2px solid blue;*/
   text-align: center;
   margin-bottom: 20px;
 }
 
 h1 {
+  font-family: 'Sonsie One', cursive;
   font-size: 40px;
   padding: 10px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
 ul {
-  border: 2px solid red;
+  /*border: 2px solid red;*/
   padding: 20px;
 }
 
 li {
-  border: 2px solid white;
+  border: 2px solid blue;
+  font-family: 'Sonsie One', cursive;
   font-size: 20px;
   margin: 0 auto;
   display: inline;
@@ -44,6 +49,7 @@ li {
   width: 20px;
   height: 20px;
   background-color: blue;
+
 }
 
 #spaceship {
@@ -57,12 +63,13 @@ li {
 }
 
 footer {
-  border: 2px solid yellow;
+  /*border: 2px solid yellow;*/
   text-align: center;
   margin-top: 20px;
 }
 
 button {
+  font-family: 'Sonsie One', cursive;
   padding: 10px 40px;
   font-size: 20px;
 }
