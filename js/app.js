@@ -7,22 +7,21 @@ let score;
 let $timeContainer = null;
 let interval = null;
 let timer = 4;
-let over;
-let speed = 200;
+let levelUp;
+let speed = 300;
 
 $(() =>{
 
   const $container = $('.container');
   const $score = $('#score');
   $button = $('button');
-  $timeContainer = $('<div id="timer"></div>');
+  $timeContainer = $('<div class = "font-effect-neon" id="timer"></div>');
   $spaceship = $('<div id="spaceship"></div>');
-  $gameOver = $('<div class="gameover">Game Over</div>');
+  $gameOver = $('<div class = "font-effect-neon" id="gameover">Game Over</div>');
 
 
   //Game Starts Now
   $button.on('click', () => {
-    over = false;
     $button.html('Play');
     $container.empty();
     score = 0;
@@ -33,10 +32,8 @@ $(() =>{
 
   function play(){
     $container.empty();
-    // score = 0;
-    // $score.html(`Score: ${score}`);
     createSpaceship();
-    checkCollide = setInterval(createPlanets, 200);
+    checkCollide = setInterval(createPlanets, speed);
   }
 
 
@@ -83,15 +80,12 @@ $(() =>{
     $planet = $('<div class="planets"></div>');
     $planet.css({'left': randomTop, 'height': randomHeight, 'width': randomWidth});
     $container.append($planet);
-    $planet = $('.planets');
-
     movePlanets($planet);
   }
 
-  function movePlanets(){
+  function movePlanets($planet){
     $planet.animate({
-      'top': '900px',
-      duration: 0
+      'top': '700px'
     }, {
       duration: 3000,
       step: step,
@@ -115,28 +109,25 @@ $(() =>{
 
     if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
 
-    over = true;
     return true;
   }
 
   function step(){
-    if (over) return;
     if (collisions($spaceship, $(this))) {
+      $(this).stop().remove();
       gameOver();
       playAgain();
     }
   }
 
   function callback() {
-    checkScore();
     $(this).remove();
+    checkScore();
   }
 
   function gameOver(){
     clearInterval(checkCollide);
-    over = true;
-    $(this).stop();
-    $('.planets').finish();
+    $('.planets').stop().remove();
     $container.append($gameOver);
   }
 
@@ -144,9 +135,13 @@ $(() =>{
     score++;
     $score.html(`Score: ${score}`);
 
-    // if(score === 20){
-    //
-    // }
+    if(score % 20 === 0){
+      clearInterval(checkCollide);
+      speed - 10;
+      levelUp = setInterval(createPlanets, speed);
+    } else {
+      //gameover and container should be cleared.
+    }
   }
 
   function playAgain(){
