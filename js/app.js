@@ -4,28 +4,55 @@ let $planet;
 let $button;
 let $gameOver;
 let score;
+let $timeContainer = null;
+let interval = null;
+let timer = 4;
+let over;
+let speed = 200;
 
 $(() =>{
 
   const $container = $('.container');
   const $score = $('#score');
   $button = $('button');
+  $timeContainer = $('<div id="timer"></div>');
+  $spaceship = $('<div id="spaceship"></div>');
   $gameOver = $('<div class="gameover">Game Over</div>');
 
-  //Game Starts Now
-  $button.on('click', play);
 
-  function play(){
+  //Game Starts Now
+  $button.on('click', () => {
+    over = false;
     $button.html('Play');
     $container.empty();
     score = 0;
     $score.html(`Score: ${score}`);
+    interval = setInterval(countdown, 1000);
+  });
+
+
+  function play(){
+    $container.empty();
+    // score = 0;
+    // $score.html(`Score: ${score}`);
     createSpaceship();
-    checkCollide = setInterval(createPlanets, 300);
+    checkCollide = setInterval(createPlanets, 200);
+  }
+
+
+  function countdown() {
+    timer = timer-1;
+    $timeContainer.html(timer);
+    $container.append($timeContainer);
+
+    if (timer <= 0) {
+      timer = 4;
+      clearInterval(interval);
+      play();
+    }
   }
 
   function createSpaceship(){
-    $spaceship = $('<div id="spaceship"></div>');
     $container.append($spaceship);
 
     moveSpaceship();
@@ -87,12 +114,14 @@ $(() =>{
     var r2 = x2 + w2;
 
     if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+
+    over = true;
     return true;
   }
 
   function step(){
+    if (over) return;
     if (collisions($spaceship, $(this))) {
-      clearInterval(checkCollide);
       gameOver();
       playAgain();
     }
@@ -104,19 +133,23 @@ $(() =>{
   }
 
   function gameOver(){
+    clearInterval(checkCollide);
+    over = true;
     $(this).stop();
-    $('.planets').stop();
-    $('#spaceship').stop();
+    $('.planets').finish();
     $container.append($gameOver);
   }
 
   function checkScore(){
     score++;
     $score.html(`Score: ${score}`);
+
+    // if(score === 20){
+    //
+    // }
   }
 
   function playAgain(){
     $button.html('Play Again');
   }
-
 });
