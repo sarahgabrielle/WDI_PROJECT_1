@@ -1,7 +1,5 @@
-
-
 body {
-  background: rgb(7,7,33);
+  background: #0f141b;
   color: rgb(177,189,205);
   max-width: 600px;
   margin: 0 auto;
@@ -35,11 +33,13 @@ li {
   padding: 10px;
 }
 
+#level {
+
+}
+
 .container {
   border: 2px solid rgb(177,189,205);
-  background-image: url(../images/galaxy2.jpg);
-  background-size: contain;
-  background-repeat: repeat-x;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
   width: 600px;
   height: 600px;
   position: relative;
@@ -47,49 +47,42 @@ li {
 }
 
 .planets {
+  background-size: contain;
   position: absolute;
   top: -20px;
   width: 50px;
   height: 50px;
-  background-color: blue;
-
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #spaceship {
+  background-image: url(../images/ufo3.png);
+  background-size: contain;
   position: absolute;
   bottom: 0;
-  width: 20px;
-  height: 20px;
-  background-color: rgb(177,189,205);
+  width: 50px;
+  height: 50px;
   left: 290px;
 }
 
 #timer {
-  position: absolute;
+  font-family: 'Bungee Shade', cursive;
   text-align: center;
   font-size: 50px;
-  line-height: 100px;
-  top: 50%;
-  left: 50%;
-  width: 80%;
   height: 100px;
-  transform: translate(-50%, -50%);
+  margin-top: 250px;
+
 }
 #gameover {
   font-family: 'Bungee Shade', cursive;
-  position: absolute;
   text-align: center;
   font-size: 50px;
-  line-height: 100px;
-  top: 50%;
-  left: 50%;
-  width: 80%;
   height: 100px;
-  transform: translate(-50%, -50%);
-  /*background: rgb(7,7,33);*/
   transition-timing-function: ease-in-out;
   transition: all 0.2s;
   z-index: 1;
+  margin-top: 250px;
 }
 
 footer {

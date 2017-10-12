@@ -11,7 +11,9 @@ let levelUp = 1;
 let speed = 350;
 let gameOverAudio;
 let audioPlay;
-let highScore = 0;
+let $stars;
+let $stars2;
+let $stars3;
 
 $(() =>{
 
@@ -19,34 +21,39 @@ $(() =>{
   const $score = $('#score');
   const $highScore = $('#best');
   $button = $('button');
-  $timeContainer = $('<div class = "font-effect-neon" id="timer"></div>');
+  $timeContainer = $('<div class = "font-effect-neon animated pulse infinite" id="timer"></div>');
   $spaceship = $('<div id="spaceship"></div>');
-  const $levelUp = $('#level');
-  $gameOver = $('<div class = "font-effect-neon" id="gameover">Game Over</div>');
+  $stars = $('#stars');
+  $stars2 = $('#stars2');
+  $stars3 = $('#stars3');
+  let $levelUp = $('#level');
+  $gameOver = $('<div class="font-effect-neon animated pulse infinite" id="gameover">Game Over</div>');
   audioPlay = new Audio('audio/I_Cant_Remmber.mp3');
   gameOverAudio = new Audio('audio/Stranger_Things.mp3');
+  bestScore();
+
 
   //Game Starts Now
   $button.on('click', () => {
+    speed = 350;
     $button.html('Play');
     $container.empty();
     levelUp = 1;
     $levelUp.html(`Level: ${levelUp}`);
     score = 0;
     $score.html(`Score: ${score}`);
-    clearInterval(checkCollide);
     interval = setInterval(countdown, 1000);
+    $container.append('<div id="stars"></div>');
+    $container.append('<div id="stars2"></div>');
+    $container.append('<div id="stars3"></div>');
   });
 
-
   function play(){
-    clearInterval(checkCollide);
     audioPlay.play();
     $container.empty();
     createSpaceship();
     checkCollide = setInterval(createPlanets, speed);
   }
-
 
   function countdown() {
     timer = timer-1;
@@ -76,7 +83,7 @@ $(() =>{
           }
           break;
         case 39: // right
-          if(shipPosition.left < 580 ) {
+          if(shipPosition.left < 550 ) {
             $spaceship.css('left', '+=10px');
           }
       }
@@ -84,12 +91,15 @@ $(() =>{
   }
 
   function createPlanets(){
-    const randomTop = Math.floor(Math.random() * 580) + 1;
+    const images = ['asteroid', 'milky-way', 'neptune', 'saturn', 'venus'];
+    const $randomImage = images[Math.floor(Math.random() * images.length)];
+    console.log($randomImage);
+    const randomTop = Math.floor(Math.random() * 550) + 1;
     const randomHeight = Math.floor(Math.random() * 50) + 10;
     const randomWidth = Math.floor(Math.random() * 50) + 10;
 
     $planet = $('<div class="planets"></div>');
-    $planet.css({'left': randomTop, 'height': randomHeight, 'width': randomWidth});
+    $planet.css({'left': randomTop, 'height': randomHeight, 'width': randomWidth, 'background-image': `url(./images/${$randomImage}.png)`});
     $container.append($planet);
     movePlanets($planet);
   }
@@ -134,13 +144,12 @@ $(() =>{
   function callback() {
     $(this).remove();
     checkScore();
-    bestScore();
   }
 
   function gameOver(){
-    audioPlay.pause();
-    audioPlay.currentTime = 0;
-    gameOverAudio.play();
+    // audioPlay.pause();
+    // audioPlay.currentTime = 0;
+    // gameOverAudio.play();
     clearInterval(checkCollide);
     $('.planets').stop().remove();
     $container.append($gameOver);
@@ -149,26 +158,34 @@ $(() =>{
   function checkScore(){
     score++;
     $score.html(`Score: ${score}`);
+    bestScore();
 
-    if(score % 40 === 0){
+    if(score % 20 === 0){
       clearInterval(checkCollide);
       levelUp ++;
       $levelUp.html(`Level: ${levelUp}`);
+      $levelUp.addClass('animated flash').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        $(this).removeClass('animated flash');
+      });
       speed = speed - 20;
       checkCollide = setInterval(createPlanets, speed);
     }
   }
 
   function bestScore (){
-    if(score > highScore){
-      highScore = score;
-      $highScore.html(`Best: ${highScore}`);
+    if (window.localStorage.bestScore) {
+      if(score > parseInt(window.localStorage.bestScore)){
+        window.localStorage.bestScore = score;
+      }
+    } else {
+      window.localStorage.setItem('bestScore', score);
     }
+    $highScore.html(`Best: ${window.localStorage.bestScore}`);
   }
 
   function playAgain(){
     $button.html('Play Again');
-    // gameOverAudio.pause();
+    gameOverAudio.pause();
     // gameOverAudio.currentTime = 0;
   }
 });
