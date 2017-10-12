@@ -97,13 +97,17 @@ footer {
   margin-top: 20px;
 }
 
-button {
+button{
   -webkit-animation: glowing 1500ms infinite;
   font-family: 'Bungee Hairline', cursive;
   font-weight: bold;
   background-color: #D1D1E2;
   padding: 10px 40px;
   font-size: 20px;
+}
+
+button:focus {
+  outline: none;
 }
 
 @-webkit-keyframes glowing {

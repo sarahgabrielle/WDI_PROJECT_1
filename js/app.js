@@ -7,30 +7,41 @@ let score;
 let $timeContainer = null;
 let interval = null;
 let timer = 4;
-let levelUp;
-let speed = 300;
+let levelUp = 1;
+let speed = 350;
+let gameOverAudio;
+let audioPlay;
+let highScore = 0;
 
 $(() =>{
 
   const $container = $('.container');
   const $score = $('#score');
+  const $highScore = $('#best');
   $button = $('button');
   $timeContainer = $('<div class = "font-effect-neon" id="timer"></div>');
   $spaceship = $('<div id="spaceship"></div>');
+  const $levelUp = $('#level');
   $gameOver = $('<div class = "font-effect-neon" id="gameover">Game Over</div>');
-
+  audioPlay = new Audio('audio/I_Cant_Remmber.mp3');
+  gameOverAudio = new Audio('audio/Stranger_Things.mp3');
 
   //Game Starts Now
   $button.on('click', () => {
     $button.html('Play');
     $container.empty();
+    levelUp = 1;
+    $levelUp.html(`Level: ${levelUp}`);
     score = 0;
     $score.html(`Score: ${score}`);
+    clearInterval(checkCollide);
     interval = setInterval(countdown, 1000);
   });
 
 
   function play(){
+    clearInterval(checkCollide);
+    audioPlay.play();
     $container.empty();
     createSpaceship();
     checkCollide = setInterval(createPlanets, speed);
@@ -123,9 +134,13 @@ $(() =>{
   function callback() {
     $(this).remove();
     checkScore();
+    bestScore();
   }
 
   function gameOver(){
+    audioPlay.pause();
+    audioPlay.currentTime = 0;
+    gameOverAudio.play();
     clearInterval(checkCollide);
     $('.planets').stop().remove();
     $container.append($gameOver);
@@ -135,16 +150,25 @@ $(() =>{
     score++;
     $score.html(`Score: ${score}`);
 
-    if(score % 20 === 0){
+    if(score % 40 === 0){
       clearInterval(checkCollide);
-      speed - 10;
-      levelUp = setInterval(createPlanets, speed);
-    } else {
-      //gameover and container should be cleared.
+      levelUp ++;
+      $levelUp.html(`Level: ${levelUp}`);
+      speed = speed - 20;
+      checkCollide = setInterval(createPlanets, speed);
+    }
+  }
+
+  function bestScore (){
+    if(score > highScore){
+      highScore = score;
+      $highScore.html(`Best: ${highScore}`);
     }
   }
 
   function playAgain(){
     $button.html('Play Again');
+    // gameOverAudio.pause();
+    // gameOverAudio.currentTime = 0;
   }
 });
