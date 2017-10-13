@@ -21,12 +21,12 @@ $(() =>{
   const $score = $('#score');
   const $highScore = $('#best');
   $button = $('button');
+  const $levelUp = $('#level');
   $timeContainer = $('<div class = "font-effect-neon animated pulse infinite" id="timer"></div>');
   $spaceship = $('<div id="spaceship"></div>');
   $stars = $('#stars');
   $stars2 = $('#stars2');
   $stars3 = $('#stars3');
-  let $levelUp = $('#level');
   $gameOver = $('<div class="font-effect-neon animated pulse infinite" id="gameover">Game Over</div>');
   audioPlay = new Audio('audio/I_Cant_Remmber.mp3');
   gameOverAudio = new Audio('audio/Stranger_Things.mp3');
@@ -83,6 +83,16 @@ $(() =>{
         case 39: // right
           if(shipPosition.left < 550 ) {
             $spaceship.css('left', '+=10px');
+          }
+          break;
+        case 38: // up
+          if(shipPosition.top > 0 ) {
+            $spaceship.css('top', '-=10px');
+          }
+          break;
+        case 40: // down
+          if(shipPosition.top < 550 ) {
+            $spaceship.css('top', '+=10px');
           }
       }
     });

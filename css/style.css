@@ -46,13 +46,15 @@ li {
   overflow: hidden;
 }
 
+.css-typing {
+  padding: 20px;
+}
+
 .css-typing p {
   font-family: 'VT323', monospace;
-  font-size: 30px;
-  width: 600px;
-  /*white-space: nowrap;*/
+  font-size: 20px;
+  white-space: nowrap;
   overflow: hidden;
-  /*overflow-wrap: break-word;*/
   /*-webkit-animation: type 5s steps(40, end);*/
   animation: type 5s steps(40, end);
 }
@@ -62,7 +64,7 @@ li {
   overflow: hidden;
   opacity: 0;
   /*-webkit-animation: type 5s steps(40, end);*/
-  animation: type2 5s steps(124, end);
+  animation: type2 5s steps(76, end);
   /*-webkit-animation-delay: 5s;*/
   animation-delay: 2s;
   /*-webkit-animation-fill-mode: forwards;*/
@@ -74,9 +76,9 @@ li {
   overflow: hidden;
   opacity: 0;
   /*-webkit-animation: type 5s steps(40, end);*/
-  animation: type3 5s steps(40, end);
+  animation: type3 5s steps(47, end);
   /*-webkit-animation-delay: 10s;*/
-  animation-delay: 10s;
+  animation-delay: 7s;
   /*-webkit-animation-fill-mode: forwards;*/
   animation-fill-mode: forwards;
 }
@@ -86,9 +88,9 @@ li {
   overflow: hidden;
   opacity: 0;
   /*-webkit-animation: type 5s steps(40, end);*/
-  animation: type3 5s steps(87, end);
+  animation: type3 5s steps(40, end);
   /*-webkit-animation-delay: 10s;*/
-  animation-delay: 14s;
+  animation-delay: 12s;
   /*-webkit-animation-fill-mode: forwards;*/
   animation-fill-mode: forwards;
 }
@@ -99,16 +101,43 @@ li {
   overflow: hidden;
   opacity: 0;
   /*-webkit-animation: type 5s steps(40, end);*/
+  animation: type3 5s steps(59, end);
+  /*-webkit-animation-delay: 10s;*/
+  animation-delay: 14s;
+  /*-webkit-animation-fill-mode: forwards;*/
+  animation-fill-mode: forwards;
+}
+
+.css-typing p:nth-child(6) {
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0;
+  /*-webkit-animation: type 5s steps(40, end);*/
   animation: type3 5s steps(40, end);
   /*-webkit-animation-delay: 10s;*/
-  animation-delay: 20s;
+  animation-delay: 18s;
+  /*-webkit-animation-fill-mode: forwards;*/
+  animation-fill-mode: forwards;
+}
+
+.css-typing p:nth-child(7) {
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0;
+  /*-webkit-animation: type 5s steps(40, end);*/
+  animation: type3 5s steps(40, end);
+  /*-webkit-animation-delay: 10s;*/
+  animation-delay: 22s;
   /*-webkit-animation-fill-mode: forwards;*/
   animation-fill-mode: forwards;
 }
 
 @keyframes type {
   from {
-    width: 0;
+    width: 0%;
+  }
+  to {
+    width: 100%;
   }
 }
 
@@ -131,6 +160,7 @@ span {
   }
   100% {
     opacity: 1;
+    width: 100%;
   }
 }
 
@@ -149,6 +179,7 @@ span {
   }
   100% {
     opacity: 1;
+    width: 100%;
   }
 }
 
@@ -167,6 +198,7 @@ span {
   }
   100% {
     opacity: 1;
+    width: 100%;
   }
 }
 
@@ -185,6 +217,7 @@ span {
   }
   100% {
     opacity: 1;
+    width: 100%;
   }
 }
 
