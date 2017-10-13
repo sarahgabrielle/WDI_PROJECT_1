@@ -35,22 +35,20 @@ $(() =>{
 
   //Game Starts Now
   $button.on('click', () => {
-    speed = 350;
+    reset();
+    audioPlay.play();
     $button.html('Play');
-    $container.empty();
-    levelUp = 1;
-    $levelUp.html(`Level: ${levelUp}`);
-    score = 0;
-    $score.html(`Score: ${score}`);
-    interval = setInterval(countdown, 1000);
     $container.append('<div id="stars"></div>');
     $container.append('<div id="stars2"></div>');
     $container.append('<div id="stars3"></div>');
+    interval = setInterval(countdown, 1000);
   });
 
   function play(){
-    audioPlay.play();
     $container.empty();
+    $container.append('<div id="stars"></div>');
+    $container.append('<div id="stars2"></div>');
+    $container.append('<div id="stars3"></div>');
     createSpaceship();
     checkCollide = setInterval(createPlanets, speed);
   }
@@ -147,9 +145,9 @@ $(() =>{
   }
 
   function gameOver(){
-    // audioPlay.pause();
-    // audioPlay.currentTime = 0;
-    // gameOverAudio.play();
+    audioPlay.pause();
+    audioPlay.currentTime = 0;
+    gameOverAudio.play();
     clearInterval(checkCollide);
     $('.planets').stop().remove();
     $container.append($gameOver);
@@ -185,7 +183,16 @@ $(() =>{
 
   function playAgain(){
     $button.html('Play Again');
+  }
+
+  function reset(){
+    speed = 350;
+    levelUp = 1;
+    $levelUp.html(`Level: ${levelUp}`);
+    score = 0;
+    $score.html(`Score: ${score}`);
+    $container.empty();
     gameOverAudio.pause();
-    // gameOverAudio.currentTime = 0;
+    gameOverAudio.currentTime = 0;
   }
 });
