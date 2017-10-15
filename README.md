@@ -41,7 +41,7 @@ Approach taken:
 * Once I had the wireframes for my game, I pseudo-coded all the basic elements of my game.
 * I then approached my actual code one step at a time. I first started out with the HTML content. I then moved on to my game layout with CSS (no styling at this point). Once I was happy with those elements, I then moved on to jQuery and started building my code up little by little (created a function to move my spaceship, then moved on to creating one planet and getting that planet to move down the page. Once I had achieved that, I then added more functionality within my function to randomly create more planets and so on so forth...).
 * Once I had my basic game working, I then slowly added more functionality to my game such as adding collision detection, more levels to my game, audio and local storage for the high score.
-* The final part of my project was to add styling elements to my game using CSS and DOM manipulation.
+* The final part of my project was to add styling elements to my game using CSS, DOM manipulation and code refactoring.
 
 Unsolved problems/potential gaming improvements:
 
