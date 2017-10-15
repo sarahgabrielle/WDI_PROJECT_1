@@ -9,11 +9,12 @@ let interval = null;
 let timer = 4;
 let levelUp = 1;
 let speed = 350;
+let highScore = 0;
 let gameOverAudio;
 let audioPlay;
-let $stars;
-let $stars2;
-let $stars3;
+const $stars;
+const $stars2;
+const $stars3;
 
 $(() =>{
 
@@ -181,14 +182,14 @@ $(() =>{
   }
 
   function bestScore (){
-    if (window.localStorage.bestScore) {
-      if(score > parseInt(window.localStorage.bestScore)){
-        window.localStorage.bestScore = score;
+    if (window.localStorage.highScore) {
+      if(score > parseInt(window.localStorage.highScore)){
+        window.localStorage.highScore = score;
       }
     } else {
-      window.localStorage.setItem('bestScore', score);
+      window.localStorage.setItem('highScore', score);
     }
-    $highScore.html(`Best: ${window.localStorage.bestScore}`);
+    $highScore.html(`Best: ${window.localStorage.highScore}`);
   }
 
   function playAgain(){

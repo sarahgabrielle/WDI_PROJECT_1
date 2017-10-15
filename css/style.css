@@ -284,3 +284,8 @@ button:focus {
   50% { background-color: #D1D1E2; -webkit-box-shadow: 0 0 40px #D1D1E2; }
   100% { background-color: #E8E8F0; -webkit-box-shadow: 0 0 3px #E8E8F0; }
 }
+
+.copyright {
+  font-family: 'Bungee Hairline', cursive;
+  margin-top: 20px;
+}
