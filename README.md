@@ -1,9 +1,11 @@
-# WDI_PROJECT_1 set by General Assembly.
+# WDI PROJECT 1 set by General Assembly.
 
 
-Synopsis: First individual project set by General Assembly to come up with a fun and interesting game to build within one week.
+# Synopsis: 
 
-Technical requirements:
+First individual project set by General Assembly to come up with a fun and interesting game to build within one week.
+
+## Technical requirements:
 
 * Render a game in the browser
 * Design logic for winning
@@ -12,29 +14,29 @@ Technical requirements:
 * Deploy your game online where the rest of the world can access it
 * Use semantic markup for HTML and CSS.
 
-Necessary Deliverables:
+## Necessary Deliverables:
 
 * A working game, built by you, hosted somewhere on the internet
 * A link to your hosted working game in the URL section of your Github repo
 * A git repository hosted on Github, with a link to your hosted game, and frequent commits dating back to the very beginning of the project.
 
-Name of Game:
+### Name of Game:
 
 Space Wars
 
-Gaming instructions:
+### Gaming instructions:
 
 Avoid the planets and asteroids by pressing the left, right, up and down arrow keys to score as many points as you can.
 Press play to begin.
 The more levels you complete, the harder it gets to navigate around the galaxy!
 
-Technologies used:
+### Technologies used:
 
 * HTML
 * CSS
 * jQuery
 
-Approach taken:
+## Approach taken:
 
 * Did some online research in order to determine which game I wanted to build.
 * Planned my game by drawing out how it would look and what it should do.
@@ -43,6 +45,12 @@ Approach taken:
 * Once I had my basic game working, I then slowly added more functionality to my game such as adding collision detection, more levels to my game, audio and local storage for the high score.
 * The final part of my project was to add styling elements to my game using CSS, DOM manipulation and code refactoring.
 
-Unsolved problems/potential gaming improvements:
+## Unsolved problems/potential gaming improvements:
 
 * Had I more time, I would have liked to clearly delineate my gaming levels, added several themes for players to choose from as well as the ability to shoot down planets (rather than just avoid them).
+
+## Screenshots of the game
+
+![](/Users/Sarah/Documents/GA/GameStart.png)
+![](/Users/Sarah/Documents/GA/GameInPlay.png)
+![](/Users/Sarah/Documents/GA/GameOver.png)
