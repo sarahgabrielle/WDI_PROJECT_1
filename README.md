@@ -1,11 +1,6 @@
 # WDI PROJECT 1 set by General Assembly.
 
-
-Synopsis:
-
 First individual project set by General Assembly to come up with a fun and interesting game to build within a week.
-
-First individual project set by General Assembly to come up with a fun and interesting game to build within one week.
 
 ## Technical requirements:
 
