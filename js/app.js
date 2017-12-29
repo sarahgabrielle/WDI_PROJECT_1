@@ -29,7 +29,7 @@ $(() =>{
   $stars3 = $('#stars3');
   $gameOver = $('<div class="font-effect-neon animated pulse infinite" id="gameover">Game Over</div>');
   audioPlay = new Audio('audio/I_Cant_Remmber.mp3');
-  gameOverAudio = new Audio('audio/Stranger_Things.mp3');
+  gameOverAudio = new Audio('audio/Mountain_Jump.mp3');
   bestScore();
 
 
@@ -161,6 +161,7 @@ $(() =>{
     clearInterval(checkCollide);
     $('.planets').stop().remove();
     $container.append($gameOver);
+    $(document).off('keydown');
   }
 
   function checkScore(){
