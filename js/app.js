@@ -14,6 +14,7 @@ let audioPlay;
 let $stars;
 let $stars2;
 let $stars3;
+let shipPosition;
 
 $(() =>{
 
@@ -101,7 +102,6 @@ $(() =>{
   function createPlanets(){
     const images = ['asteroid', 'milky-way', 'neptune', 'saturn', 'venus'];
     const $randomImage = images[Math.floor(Math.random() * images.length)];
-    console.log($randomImage);
     const randomTop = Math.floor(Math.random() * 550) + 1;
     const randomHeight = Math.floor(Math.random() * 50) + 10;
     const randomWidth = Math.floor(Math.random() * 50) + 10;
@@ -190,7 +190,6 @@ $(() =>{
       window.localStorage.setItem('bestScore', score);
     }
     $highScore.html(`Best: ${window.localStorage.bestScore}`);
-    console.log($highScore);
   }
 
   function playAgain(){
