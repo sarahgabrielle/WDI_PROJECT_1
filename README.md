@@ -53,6 +53,6 @@ The more levels you complete, the harder it gets to navigate around the galaxy!
 
 ## Screenshots of the game
 
-![](/Users/Sarah/Documents/GA/GameStart.png)
-![](/Users/Sarah/Documents/GA/GameInPlay.png)
-![](/Users/Sarah/Documents/GA/GameOver.png)
+![](/images/GameStart.png)
+![](/images/GamePlay.png)
+![](/images/GameOver.png)
