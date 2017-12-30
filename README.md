@@ -27,6 +27,8 @@ Avoid the planets and asteroids by pressing the left, right, up and down arrow k
 Press play to begin.
 The more levels you complete, the harder it gets to navigate around the galaxy!
 
+Link to game: https://warm-reaches-26886.herokuapp.com/
+
 ### Technologies used:
 
 * HTML
